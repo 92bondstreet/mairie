@@ -1,0 +1,22 @@
+{
+  "name": "mairie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Yassine AZZOUT",
+    "email": "yassine.azzout@gmail.com",
+    "url": "http://www.92bondstreet.com"
+  },
+  "license": "uncopyright",
+  "dependencies": {
+    "scraperjs": "^1.2.0",
+    "superagent": "^1.7.2"
+  }
+}
