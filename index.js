@@ -1,20 +1,24 @@
 'use strict';
 
 let amf = require('./amf');
-let request = require('superagent');
+let scraperjs = require('scraperjs');
 
+/**
+ * Get the coordinates from INSEE code
+ *
+ * @param  {String} insee
+ * @param  {Function} callback
+ */
 module.exports = function mairie (insee, callback) {
-  request
-    .get('http://www.amf.asso.fr/annuaire/index.asp?')
-    .query({'refer': 'commune'})
-    .query({'dep_n_id': ''})
-    .query({'NUM_INSEE': 'insee'})
-    .end((err, res) => {
-      console.log(err);
-      amf(res);
-      callback && callback(err, null, {
-        'latitude': '',
-        'longitude': ''
-      });
+  scraperjs.DynamicScraper
+    .create('http://www.amf.asso.fr/annuaire/index.asp?refer=commune&dep_n_id=&NUM_INSEE=75000')
+    .delay(1000, $ => $)
+    .scrape(function scrape ($) {
+      return $('#map-canvas a').map(function map () {
+        return $(this).attr('href');
+      }).get();
+    })
+    .then(urls => {
+      callback && callback(null, amf(urls));
     });
 };

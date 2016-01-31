@@ -8,14 +8,16 @@
 let mairie = require('mairie');
 let insee = '75000';
 
-mairie(insee, coordinates => {
-  let [latitude, longitude] = coordinates;
+mairie(insee, (err, coordinates) => {
+  console.log(coordinates);
 });
+
+//{ latitude: '48.856614', longitude: '2.352222' }
 ```
 
 ## Source
 
-Coordinates come from [Association des Maires de France](http://www.amf.asso.fr)
+[Association des Maires de France](http://www.amf.asso.fr)
 
 ## Licence
 
