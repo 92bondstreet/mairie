@@ -21,7 +21,7 @@ module.exports = function amf (urls) {
     }
   }
 
-  coordinates = gMaps.query.ll.split(',');
+  coordinates = gMaps && gMaps.query.ll.split(',') || [];
 
   return {
     'latitude': coordinates[0],

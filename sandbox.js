@@ -10,3 +10,19 @@ mairie('75000', (err, coordinates) => {
 
   console.log(coordinates);
 });
+
+mairie('97401', (err, coordinates) => {
+  if (err) {
+    console.log(err);
+  }
+
+  console.log(coordinates);
+});
+
+mairie('0000', (err, coordinates) => {
+  if (err) {
+    console.log(err);
+  }
+
+  console.log(coordinates);
+});

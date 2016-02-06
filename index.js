@@ -11,7 +11,7 @@ let scraperjs = require('scraperjs');
  */
 module.exports = function mairie (insee, callback) {
   scraperjs.DynamicScraper
-    .create('http://www.amf.asso.fr/annuaire/index.asp?refer=commune&dep_n_id=&NUM_INSEE=75000')
+    .create(`http://www.amf.asso.fr/annuaire/index.asp?refer=commune&dep_n_id=&NUM_INSEE=${insee}`)
     .delay(1000, $ => $)
     .scrape(function scrape ($) {
       return $('#map-canvas a').map(function map () {
